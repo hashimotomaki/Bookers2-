@@ -6,21 +6,24 @@
   <h2>User info</h2>
       <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
 
-          <table class="table table-striped">
-            <tbody><tr></tr>
-              <tr>
-                 <th>name</th>
-    	           <th><%= user.name %></th>
-              </tr>
-              <tr>
-    	          <th>introduction</th>
-    	          <th><%= user.introduction %></th>
-              </tr>
-            </tbody>
-          </table>
+      <table class="table table-striped">
+        <tbody><tr></tr>
+          <tr>
+             <th>name</th>
+	           <th><%= user.name %></th>
+          </tr>
+          <tr>
+	          <th>introduction</th>
+	          <th><%= user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
 
-      <%= link_to edit_user_path(current_user),class:"btn btn-default glyphicon glyphicon-wrench" do %>
-      <% end %>
+    <div class="row">
+      <div class="btn">
+        <%= link_to edit_user_path(current_user),class:"btn btn-default glyphicon glyphicon-wrench" do %>
+        <% end %>
+      </div>
 
       <h2>New book</h2>
 
@@ -35,13 +38,20 @@
         <% end %>
 
         <%= form_with model:book, url:'/books', local: true do |f| %>
-           <div class="book_title">Title</div>
-             <%= f.text_field :title %>
-
-           <div class="book_body">Opinion</div>
-             <%= f.text_field :body %>
-
-           <div class="actions row"></div>
-             <%= f.submit "Create Book" %>
+          <div class="field row">
+            <div class="book_title">Title</div>
+            <%= f.text_field :title %>
+          </div>
+          <div class="field row">
+            <div class="book_body">Opinion</div>
+            <%= f.text_field :body %>
+          </div>
+          <div class="field row">
+            <div class="actions row"></div>
+            <div class="btn-primary">
+            <%= f.submit "Create Book" %>
+            </div>
+          </div>
         <% end %>
-</div>
+   </div>
+  </div>
