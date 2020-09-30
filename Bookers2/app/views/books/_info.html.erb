@@ -20,6 +20,7 @@
                 </tbody>
               </table>
 
+
             <%= link_to edit_user_path(current_user),class:"btn btn-default glyphicon glyphicon-wrench col-xs-12" do %>
             <% end %>
 
@@ -32,26 +33,26 @@
                 </ul>
               </div>
             <% end %>
+            <div class="row">
 
-
-            <%= form_with model:book, url:'/books', local: true do |f| %>
-              <div class="field row">
-                <div class="col-xs-12">
-                 <h2 class"h2">New book</h2>
-                </div>
-                
-                <div class="book_title">Title</div>
-                <%= f.text_field :title,class:"col-xs-12" %>
-                </div>
-                <div class="field row">
-                  <div class="book_body">Opinion</div>
-                  <%= f.text_area :body,rows:"2",class:"col-xs-12" %>
-                </div>
-                <div class="field row">
-                  <div class="actions row"></div>
-                  <%= f.submit "Create Book", class:"btn btn-primary col-xs-12" %>
+                   <h2 class"h2">New book</h2>
                   </div>
-            <% end %>
-          </div>
+
+                  <%= form_with model:book, url:'/books', local: true do |f| %>
+
+                  <div class="field row">
+                    <div class="book_title">Title</div>
+                    <%= f.text_field :title,class:"col-xs-12" %>
+                  </div>
+                  <div class="field row">
+                    <div class="book_body">Opinion</div>
+                    <%= f.text_area :body,rows:"2",class:"col-xs-12" %>
+                  </div>
+                  <div class="field row">
+                    <div class="actions row"></div>
+                    <%= f.submit "Create Book", class:"btn btn-primary col-xs-12" %>
+                  </div>
+                  <% end %>
+            </div>
     </div>
   </div>
