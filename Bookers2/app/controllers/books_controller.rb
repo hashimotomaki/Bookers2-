@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(book_params.merge(user_id: current_user.id))
     @book.user_id = current_user.id
     if @book.save
       redirect_to book_path(@book), notice: "successfully"
