@@ -5,43 +5,73 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css”>
+    <link rel="stylesheet" media="all" href="/assets/application-945628f9f95377705c9108ec9a9704e6f6ffa0767c02e34400d75b5be64fc1b7.css" data-turbolinks-track="reload">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token" content="mRdnHfi4t0AuzDxKwMVYvaKbXtFizHtEnHzCwuLPMhu64o//MzHdBVtHTW6Kx3lOiU+eLCcghK1dAZM9qJV4iA==">
+    <script src="/assets/application-11e027fe501efa6924bd87aa8f6ef7436fd1539022b412029c4a223dec9664f8.js" data-turbolinks-track="reload"></script>
   </head>
 
   <body>
-    <header>
+    <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-         <title>Bookers</title>
+        <nav class="nav navbar-nav navbar-left">
+         <span>Bookers</span>
+        </nav>
        <div id="slidemenu">
            <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
            <% if user_signed_in? %>
 
              <li class="">
-               <%= link_to "Home", user_path(current_user.id) %>
+               <%= link_to user_path(current_user.id) do %>
+               <span class="glyphicon glyphicon-home home">
+                Home</span>
+                <% end %>
              </li>
              <li class="">
-             <%= link_to "Users", users_path %>
+               <%= link_to users_path do %>
+               <span class="glyphicon glyphicon-user users">
+               Users</span>
+               <% end %>
              </li>
              <li class="">
-             <%= link_to "Books", books_path %>
+               <%= link_to books_path do %>
+               <span class="glyphicon glyphicon-book books">
+                Books</span>
+               <% end %>
              </li>
              <li class="">
-             <%= link_to "logout", destroy_user_session_path, method: :delete %>
+               <%= link_to destroy_user_session_path, method: :delete  do %>
+               <span class="glyphicon glyphicon-log-out logout">
+               logout</span>
+               <% end %>
              </li>
 
              <% else %>
              <li class="">
-             <%= link_to "Home", root_path %>
+               <%= link_to root_path do %>
+               <span class="glyphicon glyphicon-home home">
+               Home</span>
+             <% end %>
              </li>
              <li class="">
-             <%= link_to "About", home_about_path %>
+               <%= link_to home_about_path do %>
+               <span class="glyphicon glyphicon-link about">
+               About</span>
+               <% end %>
              </li>
              <li class="">
-             <%= link_to "sign up", new_user_registration_path %>
+               <%= link_to new_user_registration_path do %>
+               <span class="glyphicon glyphicon-edit sign_up">
+               sign up</span>
+               <% end %>
              </li>
              <li class="">
-             <%= link_to "login", new_user_session_path %>
+               <%= link_to new_user_session_path do %>
+               <span class="glyphicon glyphicon-log-in sign_in">
+               login</span>
+               <% end %>
              </li>
              <% end %>
            </ul>
@@ -53,6 +83,14 @@
       <%= yield %>
     </div>
 
-
+    <footer>
+      <div class="container">
+      	<div class="row">
+      	  <div class="col-xs-3 col-xs-offset-9">
+    	  	 <p>CopyRight Infratop.inc</p>
+        	</div>
+        </div>
+      </div>
+   </footer>
  </body>
 </html>
